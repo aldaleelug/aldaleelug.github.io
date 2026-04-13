@@ -1,1 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدليل UG — User Guide التقني</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg-0:#080c10;--bg-1:#0d1117;--bg-2:#161b22;--bg-3:#1c2330;--border:#2a3545;--border-bright:#3a4f6a;--text-primary:#e8edf4;--text-secondary:#8b9bb4;--text-muted:#4a5568;--accent:#00d4ff;--accent-2:#ff6b2b;--accent-3:#7c3aed;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--font-d:'Cairo',sans-serif;--font-b:'Tajawal',sans-serif;--r:12px;--glow:0 0 30px rgba(0,212,255,.15)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg-0);color:var(--text-primary);min-height:100vh;overflow-x:hidden;line-height:1.7}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-1)}::-webkit-scrollbar-thumb{background:var(--border-bright);border-radius:3px}
 
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(8,12,16,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 16px}
+.hdr-in{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:12px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;cursor:pointer}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--accent),var(--accent-3));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;font-family:var(--font-d);letter-spacing:-1px}
+.logo-txt{font-family:var(--font-d);font-weight:900;font-size:19px;background:linear-gradient(135deg,var(--accent),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-sub{font-size:10px;color:var(--text-muted);-webkit-text-fill-color:var(--text-muted);display:block;margin-top:-4px}
+.srch-w{flex:1;max-width:500px;position:relative}
+.srch-w input{width:100%;background:var(--bg-2);border:1px solid var(--border);border-radius:40px;padding:9px 18px 9px 44px;font-family:var(--font-b);font-size:14px;color:var(--text-primary);outline:none;transition:border-color .2s,box-shadow .2s}
+.srch-w input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,.1)}
+.srch-w input::placeholder{color:var(--text-muted)}
+.srch-ico{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;font-size:15px}
+.hbtn{display:flex;align-items:center;gap:5px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;padding:7px 13px;font-family:var(--font-b);font-size:12px;color:var(--text-secondary);cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.hbtn:hover{border-color:var(--accent);color:var(--accent)}
+.pill{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(0,212,255,.1);color:var(--accent)}
+
+/* CAT NAV */
+.cat-nav{background:var(--bg-1);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-in{max-width:1300px;margin:0 auto;display:flex;padding:0 16px}
+.cb{display:flex;align-items:center;gap:5px;padding:11px 14px;font-family:var(--font-b);font-size:13px;color:var(--text-secondary);background:none;border:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.cb:hover{color:var(--text-primary)}.cb.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* MAIN */
+.main{max-width:1300px;margin:0 auto;padding:26px 16px;position:relative;z-index:1}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d1117,#0a1628 50%,#0d0a20);border:1px solid var(--border);border-radius:16px;padding:30px 34px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;left:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,212,255,.12),transparent 70%);pointer-events:none}
+.hero-title{font-family:var(--font-d);font-size:clamp(19px,4vw,32px);font-weight:900;line-height:1.3;margin-bottom:7px}
+.hero-title span{color:var(--accent)}
+.hero-sub{color:var(--text-secondary);font-size:13px;max-width:480px;margin-bottom:20px}
+.hstats{display:flex;gap:26px;flex-wrap:wrap}
+.hstat-n{font-family:var(--font-d);font-size:22px;font-weight:900;color:var(--accent);line-height:1}
+.hstat-l{font-size:10px;color:var(--text-muted)}
+
+/* SECTION */
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sec-t{font-family:var(--font-d);font-size:16px;font-weight:700;display:flex;align-items:center;gap:9px}
+.sec-t::before{content:'';width:3px;height:18px;background:linear-gradient(180deg,var(--accent),var(--accent-3));border-radius:2px;display:block}
+.see-all{font-size:12px;color:var(--accent);text-decoration:none}
+
+/* TRENDING */
+.trow{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;margin-bottom:32px}
+.trow::-webkit-scrollbar{display:none}
+.tchip{display:flex;align-items:center;gap:5px;flex-shrink:0;background:var(--bg-1);border:1px solid var(--border);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12px;transition:all .2s}
+.tchip:hover{border-color:var(--accent);color:var(--accent)}
+.trank{font-weight:900;color:var(--accent);font-size:10px}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:13px;margin-bottom:40px}
+.card{background:var(--bg-1);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all .25s;position:relative}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--glow)}
+.card.in-cmp{border-color:var(--accent-3);box-shadow:0 0 18px rgba(124,58,237,.2)}
+.cbdg{position:absolute;top:9px;right:9px;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:700;z-index:2}
+.bdg-best{background:rgba(255,107,43,.12);color:var(--accent-2);border:1px solid rgba(255,107,43,.3)}
+.bdg-new{background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.25)}
+.bdg-hot{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.25)}
+.card-img{width:100%;height:148px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;font-size:58px;border-bottom:1px solid var(--border);position:relative}
+.card-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(0,212,255,.05),transparent 70%)}
+.cmp-btn{position:absolute;bottom:7px;left:7px;z-index:3;background:var(--bg-3);border:1px solid var(--border);border-radius:5px;padding:3px 9px;font-size:9px;font-weight:700;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.cmp-btn:hover{border-color:var(--accent-3);color:var(--accent-3)}
+.cmp-btn.on{background:rgba(124,58,237,.15);border-color:var(--accent-3);color:var(--accent-3)}
+.card-body{padding:13px}
+.card-cat{font-size:9px;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:1px;margin-bottom:4px}
+.card-name{font-family:var(--font-d);font-size:13px;font-weight:700;line-height:1.4;margin-bottom:7px;color:var(--text-primary)}
+.stars{color:var(--yellow);font-size:11px;letter-spacing:1px}
+.card-rat{display:flex;align-items:center;gap:5px;margin-bottom:9px;font-size:11px;color:var(--text-secondary)}
+.card-price{font-family:var(--font-d);font-size:19px;font-weight:900;color:var(--green)}
+.pcur{font-size:12px;font-weight:600;margin-right:2px}
+.pold{font-size:10px;color:var(--text-muted);text-decoration:line-through}
+.card-pr-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.smini{display:flex;gap:3px;flex-wrap:wrap}
+.sc{padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;background:var(--bg-3);color:var(--text-secondary)}
+.sc.ch{background:rgba(16,185,129,.1);color:var(--green)}
+.card-vrd{background:var(--bg-2);border-radius:5px;padding:6px 9px;font-size:10px;color:var(--text-secondary);border-right:3px solid var(--accent);line-height:1.5}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(8,12,16,.92);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:10px;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg-1);border:1px solid var(--border-bright);border-radius:16px;width:100%;max-width:870px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.95) translateY(18px);transition:transform .3s;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+.overlay.open .modal{transform:scale(1) translateY(0)}
+.m-hdr{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:13px;flex-shrink:0}
+.m-img{width:72px;height:72px;background:var(--bg-2);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+.m-tb{flex:1}
+.m-cat{font-size:9px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.m-name{font-family:var(--font-d);font-size:clamp(14px,2.5vw,20px);font-weight:900;line-height:1.3;margin-bottom:5px}
+.m-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:11px;color:var(--text-secondary)}
+.close-btn{background:var(--bg-2);border:1px solid var(--border);border-radius:7px;padding:7px 9px;color:var(--text-muted);cursor:pointer;font-size:15px;transition:all .2s;flex-shrink:0}
+.close-btn:hover{color:var(--red);border-color:var(--red)}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--border);padding:0 20px;flex-shrink:0;background:var(--bg-1);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:12px 16px;font-family:var(--font-b);font-size:12px;font-weight:600;color:var(--text-muted);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.tab:hover{color:var(--text-primary)}.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab.ai-tab.active{color:#a78bfa;border-bottom-color:#a78bfa}
+.m-body{flex:1;overflow-y:auto;padding:20px}
+
+/* PANELS */
+.panel{display:none;animation:fU .3s ease}.panel.active{display:block}
+@keyframes fU{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* VERDICT */
+.vbox{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(124,58,237,.06));border:1px solid var(--border-bright);border-radius:11px;padding:16px;margin-bottom:20px;border-right:4px solid var(--accent)}
+.vlbl{font-size:9px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.vtxt{font-size:13px;line-height:1.8;color:var(--text-primary)}
+
+/* SCORES */
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:9px;margin-bottom:20px}
+.si{background:var(--bg-2);border:1px solid var(--border);border-radius:9px;padding:13px;text-align:center}
+.sv{font-family:var(--font-d);font-size:24px;font-weight:900;line-height:1;margin-bottom:4px}
+.excellent{color:var(--green)}.good{color:var(--accent)}.avg{color:var(--yellow)}.poor{color:var(--red)}
+.sl{font-size:10px;color:var(--text-muted)}
+
+/* SPECS */
+.stbl{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:12px}
+.stbl thead th{background:var(--bg-2);padding:8px 12px;text-align:right;font-weight:700;color:var(--text-secondary);font-size:10px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
+.stbl tbody tr{border-bottom:1px solid var(--border)}.stbl tbody tr:hover{background:rgba(255,255,255,.02)}
+.stbl td{padding:8px 12px;color:var(--text-primary)}.stbl td:first-child{color:var(--text-secondary);font-size:11px}
+
+/* PROS CONS */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.pros,.cons{background:var(--bg-2);border-radius:9px;padding:13px}
+.pros{border-top:3px solid var(--green)}.cons{border-top:3px solid var(--red)}
+.pct{font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:5px;font-size:12px}
+.pct.p{color:var(--green)}.pct.c{color:var(--red)}
+.pc ul{list-style:none}
+.pc li{padding:4px 0;font-size:11px;color:var(--text-secondary);display:flex;align-items:flex-start;gap:6px;border-bottom:1px solid rgba(255,255,255,.03)}
+.pc li:last-child{border:none}
+.pros li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.cons li::before{content:'✕';color:var(--red);font-weight:700;flex-shrink:0}
+
+/* PRICES */
+.pbest{background:linear-gradient(135deg,rgba(16,185,129,.08),transparent);border:1px solid rgba(16,185,129,.25);border-radius:11px;padding:16px;margin-bottom:16px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.pbv{font-family:var(--font-d);font-size:32px;font-weight:900;color:var(--green);line-height:1}
+.pbl{font-size:10px;color:var(--green);font-weight:700;margin-bottom:2px}
+.pbs{font-size:14px;font-weight:700;color:var(--text-primary)}
+.pbsh{font-size:10px;color:var(--text-muted)}
+.btn-buy{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:linear-gradient(135deg,var(--green),#059669);color:#fff;font-family:var(--font-b);font-size:12px;font-weight:700;border-radius:7px;text-decoration:none;border:none;cursor:pointer;transition:all .2s}
+.btn-buy:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(16,185,129,.3)}
+.slist{display:flex;flex-direction:column;gap:7px}
+.srow{background:var(--bg-2);border:1px solid var(--border);border-radius:9px;padding:11px 13px;display:flex;align-items:center;gap:9px;transition:border-color .2s}
+.srow:hover{border-color:var(--border-bright)}.srow.cr{border-color:rgba(16,185,129,.3)}
+.slogo{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
+.samz{background:#FF9900;color:#000}.snoon{background:#FFD200;color:#000}.sjarir{background:#e30613;color:#fff}.sextra{background:#005EA2;color:#fff}
+.sinf{flex:1}.sn{font-size:12px;font-weight:700;color:var(--text-primary)}.sm{font-size:10px;color:var(--text-muted)}
+.sp{font-family:var(--font-d);font-size:18px;font-weight:900;color:var(--text-primary)}.sp.best{color:var(--green)}
+.sdiff{font-size:9px;color:var(--red)}.sdiff.ok{color:var(--green)}
+.scta{flex-shrink:0;padding:6px 12px;background:var(--bg-3);border:1px solid var(--border);border-radius:5px;font-family:var(--font-b);font-size:11px;font-weight:600;color:var(--text-secondary);cursor:pointer;text-decoration:none;transition:all .2s}
+.scta:hover{border-color:var(--accent);color:var(--accent)}
+.phbox{background:var(--bg-2);border:1px solid var(--border);border-radius:9px;padding:13px;margin-top:16px}
+.phtitle{font-size:12px;font-weight:700;margin-bottom:10px;color:var(--text-secondary)}
+.phchart{display:flex;align-items:flex-end;gap:4px;height:54px}
+.phbar{flex:1;border-radius:3px 3px 0 0;background:var(--bg-3);transition:all .3s}
+.phbar.now{background:linear-gradient(180deg,var(--green),#059669)}.phbar.lo{background:linear-gradient(180deg,var(--accent),#0891b2)}
+.phlbls{display:flex;gap:4px;margin-top:5px;font-size:9px;color:var(--text-muted);text-align:center}
+.phlbls span{flex:1}
+
+/* REVIEWS */
+.rsum{display:flex;gap:18px;align-items:center;background:var(--bg-2);border-radius:11px;padding:16px;margin-bottom:18px;flex-wrap:wrap}
+.bsn{font-family:var(--font-d);font-size:46px;font-weight:900;color:var(--yellow);line-height:1}
+.bss{font-size:15px;color:var(--yellow);margin:3px 0}
+.bsc{font-size:10px;color:var(--text-muted)}
+.rbar-r{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:10px}
+.rbar-l{color:var(--text-muted);width:26px;text-align:center}
+.rbar-t{flex:1;height:5px;background:var(--bg-3);border-radius:3px;overflow:hidden}
+.rbar-f{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--yellow),#fbbf24)}
+.rbar-n{color:var(--text-muted);width:24px;text-align:left}
+.rfilt{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.fchip{padding:4px 11px;border-radius:20px;font-size:10px;font-weight:600;background:var(--bg-2);border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all .2s}
+.fchip:hover,.fchip.active{background:rgba(0,212,255,.1);border-color:var(--accent);color:var(--accent)}
+.rcard{background:var(--bg-2);border:1px solid var(--border);border-radius:9px;padding:13px;margin-bottom:9px;transition:border-color .2s}
+.rcard:hover{border-color:var(--border-bright)}
+.rhdr{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.ravt{width:32px;height:32px;border-radius:50%;background:var(--bg-3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:var(--accent)}
+.rnm{font-size:12px;font-weight:700;color:var(--text-primary)}
+.rinf{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--text-muted);margin-top:2px;flex-wrap:wrap}
+.rsrc{padding:2px 5px;border-radius:3px;font-size:8px;font-weight:700;background:var(--bg-3)}
+.rsrc.amz{color:#FF9900}.rsrc.reddit{color:#FF4500}
+.rver{color:var(--green);font-size:9px}
+.rtitle{font-size:12px;font-weight:700;margin-bottom:4px;color:var(--text-primary)}
+.rbody{font-size:11px;color:var(--text-secondary);line-height:1.65}
+.rtags{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}
+.rtag{padding:2px 6px;border-radius:3px;font-size:9px;background:var(--bg-3);color:var(--text-muted)}
+.rtag.pos{background:rgba(16,185,129,.08);color:var(--green)}.rtag.neg{background:rgba(239,68,68,.08);color:var(--red)}
+.rhlp{display:flex;align-items:center;gap:6px;margin-top:7px;padding-top:7px;border-top:1px solid var(--border);font-size:10px;color:var(--text-muted)}
+.hlpb{background:none;border:1px solid var(--border);border-radius:3px;padding:2px 8px;font-size:9px;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.hlpb:hover{border-color:var(--green);color:var(--green)}
+
+/* ══════════════════════════
+   AI EXPLAIN TAB
+══════════════════════════ */
+.ai-trigger{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:36px 20px;text-align:center;background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(0,212,255,.06));border:1px dashed rgba(124,58,237,.4);border-radius:13px;margin-bottom:18px;cursor:pointer;transition:all .25s}
+.ai-trigger:hover{border-color:rgba(124,58,237,.7);background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(0,212,255,.1))}
+.ai-t-icon{font-size:44px;line-height:1}
+.ai-t-title{font-family:var(--font-d);font-size:19px;font-weight:900;color:#a78bfa}
+.ai-t-sub{font-size:12px;color:var(--text-secondary);max-width:360px;line-height:1.65}
+.btn-ai{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;font-family:var(--font-b);font-size:13px;font-weight:700;border-radius:9px;border:none;cursor:pointer;transition:all .25s;box-shadow:0 4px 18px rgba(124,58,237,.35)}
+.btn-ai:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(124,58,237,.5)}
+.btn-ai:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.ai-load{display:flex;flex-direction:column;align-items:center;gap:11px;padding:36px;text-align:center}
+.ai-spin{width:42px;height:42px;border-radius:50%;border:3px solid rgba(124,58,237,.2);border-top-color:#7c3aed;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ai-l-txt{font-size:13px;color:#a78bfa;font-weight:600}
+.ai-l-sub{font-size:11px;color:var(--text-muted)}
+.ai-dots span{display:inline-block;animation:blink 1.2s infinite}
+.ai-dots span:nth-child(2){animation-delay:.2s}.ai-dots span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+.ai-err{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:14px;text-align:center;font-size:12px;color:var(--red);display:none}
+.ai-res{display:none}
+.ai-res.show{display:block;animation:fU .4s ease}
+.ai-sec{margin-bottom:20px}
+.ai-sec-t{font-family:var(--font-d);font-size:14px;font-weight:700;color:#a78bfa;margin-bottom:10px;display:flex;align-items:center;gap:7px;padding-bottom:7px;border-bottom:1px solid rgba(124,58,237,.2)}
+.ai-sec-t .ic{font-size:16px}
+.ai-p{font-size:13px;color:var(--text-primary);line-height:1.9;margin-bottom:9px}
+.ai-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px;margin-bottom:12px}
+.acard{background:var(--bg-2);border:1px solid var(--border);border-radius:9px;padding:13px;text-align:center;transition:all .2s}
+.acard:hover{border-color:rgba(124,58,237,.4)}
+.acard-ic{font-size:26px;margin-bottom:7px}
+.acard-t{font-size:11px;font-weight:700;color:#a78bfa;margin-bottom:3px}
+.acard-b{font-size:10px;color:var(--text-secondary);line-height:1.6}
+.ai-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.ai-list li{display:flex;align-items:flex-start;gap:9px;background:var(--bg-2);border:1px solid var(--border);border-radius:7px;padding:9px 11px;font-size:12px;color:var(--text-primary);line-height:1.6}
+.ai-list li .lic{font-size:14px;flex-shrink:0;margin-top:1px}
+.ai-steps{display:flex;flex-direction:column;gap:9px}
+.ai-step{display:flex;align-items:flex-start;gap:11px;background:var(--bg-2);border:1px solid var(--border);border-radius:7px;padding:11px}
+.snum{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;flex-shrink:0}
+.sbody{flex:1}.stitle{font-size:12px;font-weight:700;color:#a78bfa;margin-bottom:2px}.sdesc{font-size:11px;color:var(--text-secondary);line-height:1.6}
+.ai-vbox{background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(79,70,229,.08));border:1px solid rgba(124,58,237,.3);border-radius:11px;padding:16px;border-right:4px solid #7c3aed}
+.ai-vl{font-size:9px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.ai-vt{font-size:13px;color:var(--text-primary);line-height:1.8}
+.ai-regen{margin-top:16px;display:flex;justify-content:center}
+.btn-regen{background:none;border:1px solid rgba(124,58,237,.4);border-radius:7px;padding:7px 16px;font-family:var(--font-b);font-size:11px;color:#a78bfa;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px}
+.btn-regen:hover{background:rgba(124,58,237,.1)}
+
+/* COMPARE */
+.cmpsec{margin-top:40px}
+.cmpwrap{background:var(--bg-1);border:1px solid var(--border);border-radius:var(--r);overflow:auto}
+.cmptbl{width:100%;border-collapse:collapse;font-size:11px;min-width:520px}
+.cmptbl th{background:var(--bg-2);padding:11px 13px;text-align:center;border-bottom:1px solid var(--border);border-left:1px solid var(--border)}
+.cmptbl th:first-child{text-align:right;border-left:none}
+.cmptbl td{padding:9px 13px;border-bottom:1px solid var(--border);border-left:1px solid var(--border);text-align:center;vertical-align:middle}
+.cmptbl td:first-child{text-align:right;color:var(--text-secondary);font-weight:600;border-left:none;background:var(--bg-2)}
+.cmptbl tr:last-child td{border-bottom:none}
+.cw{color:var(--green);font-weight:700}
+
+/* COMPARE BAR */
+.cbar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(120px);z-index:150;background:var(--bg-2);border:1px solid var(--border-bright);border-radius:11px;padding:11px 16px;display:flex;align-items:center;gap:9px;box-shadow:0 8px 32px rgba(0,0,0,.5);transition:transform .3s;min-width:260px}
+.cbar.visible{transform:translateX(-50%) translateY(0)}
+.cbar-t{font-size:11px;color:var(--text-secondary)}
+.ccnt{font-weight:900;color:var(--accent-3)}
+.btn-cgo{padding:7px 16px;background:linear-gradient(135deg,var(--accent-3),#4f46e5);color:#fff;border:none;border-radius:6px;font-family:var(--font-b);font-size:11px;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-cgo:hover{opacity:.9}
+
+/* FOOTER */
+footer{background:var(--bg-1);border-top:1px solid var(--border);padding:32px 16px 20px;margin-top:52px;position:relative;z-index:1}
+.foot-in{max-width:1300px;margin:0 auto}
+.foot-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:26px;margin-bottom:26px}
+.foot-brand p{font-size:11px;color:var(--text-muted);line-height:1.7;margin-top:9px}
+.foot-col h4{font-size:11px;font-weight:700;color:var(--text-secondary);margin-bottom:9px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:6px}
+.foot-col a{font-size:11px;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bot{border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--text-muted)}
+.aff{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:5px;padding:4px 9px;font-size:9px;color:var(--yellow)}
+
+/* RESPONSIVE */
+@media(max-width:768px){.logo-sub{display:none}.srch-w{max-width:100%}.pc{grid-template-columns:1fr}.modal{max-height:96vh}.m-hdr,.m-body{padding:13px}.rsum{flex-direction:column}.foot-g{grid-template-columns:1fr 1fr}.ai-cards{grid-template-columns:1fr}}
+@media(max-width:480px){.foot-g{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.scores{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-in">
+    <div class="logo" onclick="location.reload()">
+      <div class="logo-icon">UG</div>
+      <div><div class="logo-txt">الدليل UG</div><span class="logo-sub">User Guide التقني</span></div>
+    </div>
+    <div class="srch-w">
+      <input type="text" placeholder="ابحث عن منتج، معالج، كرت شاشة..." id="srchIn" oninput="handleSearch(this.value)">
+      <span class="srch-ico">🔍</span>
+    </div>
+    <button class="hbtn" onclick="scrollToCompare()">⚖️ مقارنة <span class="pill" id="cmpBadge" style="display:none">0</span></button>
+  </div>
+</header>
+
+<nav class="cat-nav">
+  <div class="cat-in">
+    <button class="cb active" onclick="filterCat('all',this)">🏠 الكل</button>
+    <button class="cb" onclick="filterCat('gpu',this)">🎮 كروت الشاشة</button>
+    <button class="cb" onclick="filterCat('cpu',this)">⚡ المعالجات</button>
+    <button class="cb" onclick="filterCat('ram',this)">💾 الرام</button>
+    <button class="cb" onclick="filterCat('storage',this)">💿 التخزين</button>
+    <button class="cb" onclick="filterCat('laptop',this)">💻 اللابتوب</button>
+    <button class="cb" onclick="filterCat('monitor',this)">🖥️ الشاشات</button>
+    <button class="cb" onclick="filterCat('phone',this)">📱 الجوالات</button>
+  </div>
+</nav>
+
+<main class="main">
+  <div class="hero">
+    <h1 class="hero-title">قرارك في <span>دقيقة واحدة</span> — مو في ساعة</h1>
+    <p class="hero-sub">تقارير تقنية، مقارنة أسعار من أكبر المتاجر، وشرح ذكي بالعربي البسيط لكل منتج.</p>
+    <div class="hstats">
+      <div><div class="hstat-n">+1,240</div><div class="hstat-l">منتج مراجع</div></div>
+      <div><div class="hstat-n">4</div><div class="hstat-l">متاجر مقارنة</div></div>
+      <div><div class="hstat-n">+18K</div><div class="hstat-l">تقييم مترجم</div></div>
+      <div><div class="hstat-n" style="color:#a78bfa">AI</div><div class="hstat-l">شرح ذكي لكل منتج</div></div>
+    </div>
+  </div>
+
+  <div class="sec-h"><h2 class="sec-t">🔥 الأكثر بحثاً اليوم</h2></div>
+  <div class="trow">
+    <div class="tchip" onclick="openProduct(0)"><span class="trank">#1</span>🔥 RTX 4070 Super</div>
+    <div class="tchip" onclick="openProduct(1)"><span class="trank">#2</span>Ryzen 7 7800X3D</div>
+    <div class="tchip" onclick="openProduct(2)"><span class="trank">#3</span>Samsung 990 Pro</div>
+    <div class="tchip"><span class="trank">#4</span>iPhone 16 Pro</div>
+    <div class="tchip" onclick="openProduct(3)"><span class="trank">#5</span>DDR5 32GB Kit</div>
+    <div class="tchip" onclick="openProduct(4)"><span class="trank">#6</span>ASUS ROG OLED</div>
+    <div class="tchip"><span class="trank">#7</span>Corsair 5000D</div>
+    <div class="tchip" onclick="openProduct(5)"><span class="trank">#8</span>Zephyrus G16</div>
+  </div>
+
+  <div class="sec-h"><h2 class="sec-t">⭐ منتجات مراجعة ومحللة</h2><a href="#" class="see-all">عرض الكل ←</a></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="cmpsec" id="cmpsec" style="display:none">
+    <div class="sec-h">
+      <h2 class="sec-t">⚖️ جدول المقارنة</h2>
+      <button class="see-all" onclick="clearCmp()" style="color:var(--red);border:none;background:none;cursor:pointer">مسح ✕</button>
+    </div>
+    <div class="cmpwrap"><table class="cmptbl" id="cmptbl"></table></div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-g">
+      <div class="foot-brand">
+        <div class="logo" style="cursor:default"><div class="logo-icon">UG</div><div><div class="logo-txt">الدليل UG</div></div></div>
+        <p>User Guide التقني — تقارير موضوعية، مقارنة أسعار فورية، وشرح ذكي بالعربي البسيط.</p>
+        <div class="aff" style="margin-top:9px">⚠️ بعض الروابط أفلييت — نكسب عمولة بدون تكلفة إضافية عليك</div>
+      </div>
+      <div class="foot-col"><h4>الأقسام</h4><ul><li><a href="#">كروت الشاشة</a></li><li><a href="#">المعالجات</a></li><li><a href="#">اللابتوب</a></li><li><a href="#">الجوالات</a></li></ul></div>
+      <div class="foot-col"><h4>الموقع</h4><ul><li><a href="#">من نحن</a></li><li><a href="#">منهجية التقييم</a></li><li><a href="#">سياسة الخصوصية</a></li><li><a href="#">تواصل معنا</a></li></ul></div>
+      <div class="foot-col"><h4>المتاجر</h4><ul><li><a href="#">أمازون السعودية</a></li><li><a href="#">نون</a></li><li><a href="#">جرير</a></li><li><a href="#">اكسترا</a></li></ul></div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2025 الدليل UG — جميع الحقوق محفوظة</span>
+      <span>الأسعار تُحدَّث يومياً — قد تتغير دون إشعار</span>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="handleOvClick(event)">
+  <div class="modal" id="modal">
+    <div class="m-hdr" id="mhdr"></div>
+    <div class="tabs" id="mtabs"></div>
+    <div class="m-body" id="mbody"></div>
+  </div>
+</div>
+
+<div class="cbar" id="cbar">
+  <span class="cbar-t">اخترت <span class="ccnt" id="ccnt">0</span> منتجات للمقارنة</span>
+  <button class="btn-cgo" onclick="scrollToCompare()">قارن الآن ⚖️</button>
+</div>
+
+<script>
+// ══════════════ DATA ══════════════
+const P=[
+  {id:0,cat:'gpu',emoji:'🎮',name:'NVIDIA GeForce RTX 4070 Super',nameAr:'كرت شاشة NVIDIA RTX 4070 Super',brand:'NVIDIA',badge:'best',badgeText:'الأفضل قيمة',rating:4.6,reviewCount:2847,prices:{amazon:1849,noon:1920,jarir:1975,extra:1999},oldPrice:2199,verdict:'الخيار الذكي لـ 4K في 2024 — أداء استثنائي بسعر منافس',specs:[['المعالج','AD104','CUDA Cores','7168'],['الذاكرة','12GB GDDR6X','ناقل الذاكرة','192-bit'],['التردد','2475 MHz Boost','الطاقة','220W TDP'],['المخرجات','3x DP 1.4a + HDMI 2.1','الدقة','8K Support'],['تقنيات','DLSS 3.5, RT Gen 3','الضمان','سنتان']],scores:[{l:'الأداء',v:'9.1',c:'excellent'},{l:'القيمة/السعر',v:'9.4',c:'excellent'},{l:'الطاقة',v:'7.8',c:'good'},{l:'التوافق',v:'8.9',c:'excellent'}],verdictLong:'RTX 4070 Super هو الكرت الذي ينتظره كل شخص يريد أداء 4K حقيقي. مقارنةً بـ RTX 3080 تحصل على 35% تحسن أداء بسعر أقل. مشكلته الوحيدة: 12GB قد تضيق مستقبلاً.',pros:['أداء 4K استثنائي','DLSS 3.5 يضاعف الأداء','استهلاك كهرباء معقول','حرارة ممتازة','دعم قوي لـ Ray Tracing'],cons:['12GB ذاكرة قد تضيق مستقبلاً','يحتاج 750W على الأقل','سعر مرتفع نسبياً','ليس الأفضل في بعض ألعاب DX12'],ph:[85,92,100,95,88,82,84,100],phl:['مايو','يون','يول','أغس','سبت','أكت','نوف','الآن'],reviews:[{n:'محمد العتيبي',av:'م',s:5,t:'أفضل كرت اشتريته',b:'شريته من أمازون، وصل في يومين. الأداء في Cyberpunk 2077 على 4K ممتاز. الكولر هادي جداً.',tags:['أداء ممتاز','هادي','توصيل سريع'],src:'amz',v:true,h:147,d:'أكتوبر 2024'},{n:'u/Gaming_SA',av:'G',s:4,t:'قيمة ممتازة بس في تحفظ',b:'الكرت ممتاز على 1440p و4K. بس مع textures مجنونة وmods راح تحس بضيق الـ 12GB أحياناً.',tags:['1440p مثالي','DLSS رائع'],src:'reddit',v:false,h:89,d:'نوفمبر 2024'},{n:'فيصل الشمري',av:'ف',s:5,t:'الترقية المثالية من RTX 3070',b:'الفرق واضح جداً في Path of Exile 2 و Alan Wake 2. الـ DLSS Frame Generation مجنون. يستاهل كل ريال.',tags:['ترقية ممتازة','Frame Gen رائع'],src:'amz',v:true,h:203,d:'ديسمبر 2024'}]},
+  {id:1,cat:'cpu',emoji:'⚡',name:'AMD Ryzen 7 7800X3D',nameAr:'معالج AMD Ryzen 7 7800X3D',brand:'AMD',badge:'hot',badgeText:'🔥 الأكثر طلباً',rating:4.8,reviewCount:4102,prices:{amazon:1349,noon:1410,jarir:1450,extra:1399},oldPrice:1699,verdict:'ملك الألعاب — أفضل معالج للجيمينج في السوق الآن',specs:[['النوية','Zen 4 + 3D V-Cache','الأنوية','8 / 16 Thread'],['التردد','5.0 GHz Boost','كاش L3','96MB (3D)'],['المنصة','AM5','الذاكرة','DDR5'],['الطاقة','120W TDP','البناء','TSMC 5nm'],['iGPU','RDNA 2','الضمان','3 سنوات']],scores:[{l:'أداء الألعاب',v:'9.8',c:'excellent'},{l:'أداء الإنتاج',v:'7.5',c:'good'},{l:'الطاقة',v:'8.5',c:'excellent'},{l:'القيمة',v:'9.2',c:'excellent'}],verdictLong:'الـ 3D V-Cache غيّر القواعد. هذا المعالج يتفوق على i9-13900K في الألعاب بنصف السعر وربع الكهرباء! الكاش الضخم يقلل التأخير بشكل جنوني في الألعاب.',pros:['أفضل أداء في الألعاب على الإطلاق','120W استهلاك ممتاز','حرارة منخفضة','AM5 مدعومة حتى 2026+','سعر منافس بعد التخفيض'],cons:['أداء متوسط في الرندر','لا يدعم رفع التردد','يحتاج DDR5','لوحات AM5 أغلى'],ph:[100,95,90,88,85,84,83,79],phl:['مايو','يون','يول','أغس','سبت','أكت','نوف','الآن'],reviews:[{n:'سلطان المالكي',av:'س',s:5,t:'أنا مو مصدق الفرق',b:'كنت على i7-10700K. في Escape from Tarkov طار الفريم ريت من 90 إلى 165+ ثابتة. مو طبيعي.',tags:['فرق هائل','برودة ممتازة'],src:'amz',v:true,h:312,d:'سبتمبر 2024'},{n:'أحمد الدوسري',av:'أ',s:5,t:'ملك الجيمينج',b:'في Counter-Strike 2، منافسي على i9-14900K وأنا كسبانه بالـ frames. لو جيمر؟ ما في خيار ثاني.',tags:['CS2 رائع','يتفوق على i9'],src:'reddit',v:false,h:178,d:'أكتوبر 2024'}]},
+  {id:2,cat:'storage',emoji:'💿',name:'Samsung 990 Pro NVMe SSD 2TB',nameAr:'SSD سامسونج 990 Pro سعة 2TB',brand:'Samsung',badge:'new',badgeText:'جديد',rating:4.5,reviewCount:1893,prices:{amazon:459,noon:499,jarir:520,extra:489},oldPrice:649,verdict:'الأسرع في السوق — مثالي للتحرير والجيمينج الاحترافي',specs:[['القراءة','7450 MB/s','الكتابة','6900 MB/s'],['الواجهة','PCIe 4.0 x4 NVMe 2.0','الشكل','M.2 2280'],['الفلاش','V-NAND TLC','كاش','LPDDR4'],['TBW','1200','الضمان','5 سنوات'],['الحرارة','0-70°C','الاستهلاك','7.2W Max']],scores:[{l:'سرعة القراءة',v:'9.3',c:'excellent'},{l:'الموثوقية',v:'9.0',c:'excellent'},{l:'الحرارة',v:'7.5',c:'good'},{l:'القيمة',v:'8.7',c:'excellent'}],verdictLong:'سامسونج حافظت على عرشها. السرعة 7450 MB/s محسوسة فعلياً في نقل الملفات الكبيرة. التحذير: يحتاج هيت سينك في workloads ثقيلة وإلا تنزل السرعة.',pros:['سرعات قياسية PCIe 4.0','موثوقية مثبتة','ضمان 5 سنوات','برنامج Magician ممتاز','أداء ثابت'],cons:['يسخن بدون هيت سينك','يحتاج هيت سينك إضافي','PCIe 5.0 قادم','سعر أعلى قليلاً'],ph:[100,92,85,80,75,72,70,71],phl:['مايو','يون','يول','أغس','سبت','أكت','نوف','الآن'],reviews:[{n:'خالد السعدي',av:'خ',s:5,t:'نقل 200GB في ثواني',b:'نقلت 200GB من مشروع Premiere Pro في 30 ثانية. الحرارة ما تجاوزت 52 درجة مع الهيت سينك.',tags:['سرعة خرافية','للمحترفين'],src:'amz',v:true,h:445,d:'أكتوبر 2024'},{n:'نورة الزهراني',av:'ن',s:4,t:'ممتاز مع الهيت سينك',b:'بدون هيت سينك تنزل السرعة. معه؟ ثابت ومجنون. خذ هيت سينك معه.',tags:['يحتاج هيت سينك','ممتاز مع التبريد'],src:'amz',v:true,h:267,d:'نوفمبر 2024'}]},
+  {id:3,cat:'ram',emoji:'💾',name:'Corsair Vengeance DDR5 32GB 6000MHz',nameAr:'رام كورسير Vengeance DDR5 32GB 6000MHz',brand:'Corsair',badge:null,badgeText:'',rating:4.4,reviewCount:987,prices:{amazon:299,noon:329,jarir:340,extra:315},oldPrice:399,verdict:'الاختيار الأمثل لمنصة AM5 — سرعة وتوافق ممتاز',specs:[['السعة','32GB (2x16GB)','النوع','DDR5-6000'],['التوقيت','CL36-36-36-76','الجهد','1.35V'],['الهيت سبريدر','ألومنيوم منخفض','XMP/EXPO','XMP 3.0/EXPO'],['التوافق','AMD AM5 / Intel','الضمان','مدى الحياة']],scores:[{l:'الأداء',v:'8.7',c:'excellent'},{l:'التوافق',v:'9.1',c:'excellent'},{l:'الحرارة',v:'9.0',c:'excellent'},{l:'القيمة',v:'8.5',c:'excellent'}],verdictLong:'DDR5-6000 هو النقطة الحلوة لمنصة AM5. أسرع منها لا يعطي فرقاً يُذكر في الألعاب. كورسير صممتها تحديداً لهذا الغرض.',pros:['DDR5-6000 مثالية لـ AM5','EXPO تلقائي وسهل','تصميم منخفض يناسب كل كولر','ضمان مدى الحياة','توافق ممتاز'],cons:['ليس الأسرع في السوق','بدون RGB','سعر ارتفع مؤخراً'],ph:[100,98,90,86,80,79,75,75],phl:['مايو','يون','يول','أغس','سبت','أكت','نوف','الآن'],reviews:[{n:'عبدالله القحطاني',av:'ع',s:5,t:'شغلت بـ EXPO بدون مشاكل',b:'ركبتها مع Ryzen 7 7800X3D، فعّلت EXPO في ثانيتين، وشغلت بـ 6000MHz أول مرة. ما في أسهل.',tags:['EXPO سهل','توافق ممتاز'],src:'amz',v:true,h:134,d:'أكتوبر 2024'}]},
+  {id:4,cat:'monitor',emoji:'🖥️',name:'ASUS ROG Swift OLED PG27AQDM',nameAr:'شاشة ASUS ROG Swift OLED 27 بوصة 240Hz',brand:'ASUS ROG',badge:'best',badgeText:'اختيار المحررين',rating:4.7,reviewCount:1456,prices:{amazon:2199,noon:2350,jarir:2499,extra:2299},oldPrice:2799,verdict:'OLED + 240Hz + 1440p — أحلى شاشة جيمينج في 2024',specs:[['الحجم','27 بوصة / QHD 1440p','اللوحة','WOLED'],['التحديث','240Hz','الاستجابة','0.03ms GTG'],['السطوع','1000 nits HDR Peak','التباين','1.5M:1'],['الألوان','DCI-P3 98.5%','HDR','True Black 400'],['المداخل','2x HDMI 2.1 + DP 1.4','USB','USB-C 90W + 4x USB-A']],scores:[{l:'جودة الصورة',v:'9.9',c:'excellent'},{l:'أداء الألعاب',v:'9.6',c:'excellent'},{l:'القيمة',v:'7.8',c:'good'},{l:'الموثوقية',v:'8.2',c:'excellent'}],verdictLong:'الـ OLED غيّر المعادلة. أسود حقيقي 100%، ألوان منفجرة، 0.03ms استجابة. 240Hz على OLED = تجربة لا تُنسى. العيب: احتمال burn-in على المدى البعيد.',pros:['جودة OLED لا مثيل لها','240Hz + 0.03ms','HDR سطوع ممتاز','HDMI 2.1 لـ PS5/Xbox','USB-C 90W'],cons:['خطر burn-in مستقبلاً','سعر مرتفع','يحتاج كرت قوي'],ph:[100,100,95,90,85,82,80,79],phl:['مايو','يون','يول','أغس','سبت','أكت','نوف','الآن'],reviews:[{n:'طارق المطيري',av:'ط',s:5,t:'ما ترجع لـ IPS بعدها',b:'الفرق عن IPS يخلي أدمغتك تنقلب. Cyberpunk بالـ HDR تجربة من كوكب ثاني.',tags:['OLED رائع','HDR مذهل'],src:'amz',v:true,h:389,d:'نوفمبر 2024'},{n:'u/PCSA_Builds',av:'P',s:4,t:'تحتاج كرت قوي',b:'تشغيل 1440p@240Hz مع ray tracing يحتاج RTX 4080+. مع 4070 Super تلجأ لـ DLSS.',tags:['تحتاج RTX 4080+'],src:'reddit',v:false,h:156,d:'ديسمبر 2024'}]},
+  {id:5,cat:'laptop',emoji:'💻',name:'ASUS ROG Zephyrus G16 2024',nameAr:'لابتوب ASUS ROG Zephyrus G16 2024',brand:'ASUS ROG',badge:'new',badgeText:'إصدار 2024',rating:4.5,reviewCount:672,prices:{amazon:5499,noon:5750,jarir:5899,extra:5650},oldPrice:6499,verdict:'أنحف لابتوب جيمينج احترافي في السوق مع شاشة OLED',specs:[['المعالج','Intel Core Ultra 9 185H','كرت الشاشة','RTX 4090 Laptop'],['الشاشة','16" OLED 240Hz QHD+','الرام','32GB DDR5'],['التخزين','2TB NVMe PCIe 4.0','البطارية','90Wh'],['الوزن','1.85 KG','السُمك','14.9mm'],['التبريد','Tri-Fan Technology','الضمان','سنتان']],scores:[{l:'الأداء',v:'9.5',c:'excellent'},{l:'التصميم',v:'9.7',c:'excellent'},{l:'البطارية',v:'6.5',c:'avg'},{l:'القيمة',v:'7.2',c:'good'}],verdictLong:'G16 2024 أثبت أن لابتوب جيمينج خفيف مش مستحيل. OLED 240Hz + RTX 4090 + 1.85KG. العيب: البطارية 3-4 ساعات جيمينج.',pros:['أخف لابتوب بـ RTX 4090','شاشة OLED 240Hz','تصميم Premium','أداء استثنائي','تبريد ممتاز لحجمه'],cons:['بطارية ضعيفة في الجيمينج','سعر مرتفع','يسخن تحت الحمل الثقيل','محدودية المداخل'],ph:[100,100,98,92,88,87,85,85],phl:['مايو','يون','يول','أغس','سبت','أكت','نوف','الآن'],reviews:[{n:'يوسف الغامدي',av:'ي',s:5,t:'كل العيون عليه في المؤتمر',b:'شغّلت Unreal Engine 5. الكل تفاجأ إنه لابتوب. التصميم فوق المتوقع.',tags:['تصميم احترافي','قوة هائلة'],src:'amz',v:true,h:223,d:'نوفمبر 2024'}]}
+];
+
+// ══════════════ STATE ══════════════
+let cmpList=[],curCat='all',aiCache={};
+
+// ══════════════ HELPERS ══════════════
+const SN={amazon:'أمازون',noon:'نون',jarir:'جرير',extra:'اكسترا'};
+const SL={amazon:['samz','AMZ'],noon:['snoon','نون'],jarir:['sjarir','جرير'],extra:['sextra','Extra']};
+const ICONS=['🎮','💼','📚','🎬','🏗️','✈️'];
+function catLabel(c){return{gpu:'كرت شاشة',cpu:'معالج',ram:'رام',storage:'SSD تخزين',laptop:'لابتوب',monitor:'شاشة',phone:'جوال'}[c]||c}
+function starsStr(n){return'★'.repeat(Math.floor(n))+'☆'.repeat(5-Math.floor(n))}
+
+// ══════════════ RENDER GRID ══════════════
+function renderGrid(cat='all',q=''){
+  const g=document.getElementById('grid');
+  let list=P;
+  if(cat!=='all') list=list.filter(p=>p.cat===cat);
+  if(q){const lq=q.toLowerCase();list=list.filter(p=>p.name.toLowerCase().includes(lq)||p.nameAr.includes(q)||p.brand.toLowerCase().includes(lq))}
+  if(!list.length){g.innerHTML=`<div style="grid-column:1/-1;padding:40px;text-align:center;color:var(--text-muted);font-size:13px">لا توجد نتائج لـ "${q}"</div>`;return}
+  g.innerHTML=list.map(p=>{
+    const ch=Object.entries(p.prices).sort((a,b)=>a[1]-b[1])[0];
+    const disc=Math.round((1-ch[1]/p.oldPrice)*100);
+    const inc=cmpList.includes(p.id);
+    return`<div class="card${inc?' in-cmp':''}" onclick="openP(${p.id})">
+      ${p.badge?`<span class="cbdg bdg-${p.badge}">${p.badgeText}</span>`:''}
+      <div class="card-img">
+        <span style="position:relative;z-index:1">${p.emoji}</span>
+        <button class="cmp-btn${inc?' on':''}" onclick="toggleCmp(event,${p.id})">${inc?'✓ في المقارنة':'⊕ قارن'}</button>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${catLabel(p.cat)} • ${p.brand}</div>
+        <div class="card-name">${p.nameAr}</div>
+        <div class="card-rat"><span class="stars">${starsStr(p.rating)}</span><span>${p.rating} (${p.reviewCount.toLocaleString('ar-SA')})</span></div>
+        <div class="card-pr-row">
+          <div><div class="card-price"><span class="pcur">ر.س</span>${ch[1].toLocaleString('ar-SA')}</div><div class="pold">كان ${p.oldPrice.toLocaleString('ar-SA')} ↓${disc}%</div></div>
+          <div class="smini">${Object.entries(p.prices).sort((a,b)=>a[1]-b[1]).slice(0,3).map((s,i)=>`<span class="sc${i===0?' ch':''}">${SN[s[0]]}</span>`).join('')}</div>
+        </div>
+        <div class="card-vrd">💡 ${p.verdict}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterCat(cat,btn){curCat=cat;document.querySelectorAll('.cb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGrid(cat)}
+function handleSearch(q){renderGrid(curCat,q)}
+
+// ══════════════ MODAL ══════════════
+function openP(id){
+  const p=P.find(x=>x.id===id);
+  const ch=Object.entries(p.prices).sort((a,b)=>a[1]-b[1]);
+
+  document.getElementById('mhdr').innerHTML=`
+    <div class="m-img">${p.emoji}</div>
+    <div class="m-tb">
+      <div class="m-cat">${catLabel(p.cat)} • ${p.brand}</div>
+      <div class="m-name">${p.nameAr}</div>
+      <div class="m-meta"><span class="stars">${starsStr(p.rating)}</span><span>${p.rating}/5 (${p.reviewCount.toLocaleString('ar-SA')})</span>${p.badge?`<span class="cbdg bdg-${p.badge}" style="position:static">${p.badgeText}</span>`:''}</div>
+    </div>
+    <button class="close-btn" onclick="closeModal()">✕</button>`;
+
+  document.getElementById('mtabs').innerHTML=`
+    <button class="tab active" onclick="swTab('report',this)">📋 التقرير</button>
+    <button class="tab" onclick="swTab('prices',this)">💰 الأسعار</button>
+    <button class="tab" onclick="swTab('reviews',this)">💬 التقييمات (${p.reviews.length})</button>
+    <button class="tab ai-tab" onclick="swTab('ai',this)">🤖 شرح ذكي</button>`;
+
+  const rpt=`
+    <div class="vbox"><div class="vlbl">⚡ حكم المحررين</div><div class="vtxt">${p.verdictLong}</div></div>
+    <div class="scores">${p.scores.map(s=>`<div class="si"><div class="sv ${s.c}">${s.v}</div><div class="sl">${s.l}</div></div>`).join('')}</div>
+    <h3 style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:9px">📐 المواصفات التقنية</h3>
+    <table class="stbl"><tbody>${p.specs.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}</tbody></table>
+    <div class="pc"><div class="pros"><div class="pct p">✅ الإيجابيات</div><ul>${p.pros.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="cons"><div class="pct c">❌ السلبيات</div><ul>${p.cons.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+
+  const prices=`
+    <div class="pbest">
+      <div><div class="pbl">🏆 أرخص سعر الآن</div><div class="pbv">${ch[0][1].toLocaleString('ar-SA')} <span style="font-size:14px;color:var(--text-secondary)">ر.س</span></div><div class="pbs">${SN[ch[0][0]]}</div><div class="pbsh">✅ شحن سريع • توفير ${(p.oldPrice-ch[0][1]).toLocaleString('ar-SA')} ر.س</div></div>
+      <button class="btn-buy" onclick="goStore('${ch[0][0]}',${p.id})">🛒 اشتري من ${SN[ch[0][0]]} ←</button>
+    </div>
+    <div class="slist">${ch.map(([store,price],i)=>{
+      const diff=i===0?null:price-ch[0][1];
+      return`<div class="srow ${i===0?'cr':''}">
+        <div class="slogo ${SL[store][0]}">${SL[store][1]}</div>
+        <div class="sinf"><div class="sn">${SN[store]}</div><div class="sm">متاح • 2-4 أيام شحن</div></div>
+        <div style="text-align:left"><div class="sp ${i===0?'best':''}">${price.toLocaleString('ar-SA')} ر.س</div>${diff?`<div class="sdiff">+${diff} ر.س أغلى</div>`:`<div class="sdiff ok">✓ الأرخص</div>`}</div>
+        <button class="scta" onclick="goStore('${store}',${p.id})">اشتري ←</button>
+      </div>`;
+    }).join('')}</div>
+    <div class="phbox">
+      <div class="phtitle">📈 تاريخ السعر (8 أشهر)</div>
+      <div class="phchart">${p.ph.map((v,i)=>{const h=Math.round((v/Math.max(...p.ph))*50);const isCurrent=i===p.ph.length-1;const isLow=v===Math.min(...p.ph);return`<div class="phbar ${isCurrent?'now':''} ${isLow?'lo':''}" style="height:${h}px" title="${v}%"></div>`}).join('')}</div>
+      <div class="phlbls">${p.phl.map(l=>`<span>${l}</span>`).join('')}</div>
+    </div>`;
+
+  const revs=`
+    <div class="rsum">
+      <div style="text-align:center;flex-shrink:0"><div class="bsn">${p.rating}</div><div class="bss">${starsStr(p.rating)}</div><div class="bsc">من ${p.reviewCount.toLocaleString('ar-SA')} تقييم</div></div>
+      <div style="flex:1;min-width:170px">${[5,4,3,2,1].map(n=>{const pct=n===5?68:n===4?20:n===3?7:n===2?3:2;return`<div class="rbar-r"><span class="rbar-l">${n}★</span><div class="rbar-t"><div class="rbar-f" style="width:${pct}%"></div></div><span class="rbar-n">${pct}%</span></div>`}).join('')}</div>
+    </div>
+    <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:7px;padding:8px 12px;margin-bottom:14px;font-size:11px;color:var(--yellow)">⚠️ التقييمات المعروضة نماذج توضيحية — في النسخة الكاملة تُجلب مباشرة من أمازون وReddit عبر API رسمي</div>
+    <div class="rfilt"><span class="fchip active">الكل</span><span class="fchip">⭐⭐⭐⭐⭐ 5 نجوم</span><span class="fchip">موثق</span><span class="fchip">أمازون</span><span class="fchip">Reddit</span></div>
+    ${p.reviews.map(r=>`
+    <div class="rcard">
+      <div class="rhdr">
+        <div class="ravt">${r.av}</div>
+        <div style="flex:1"><div class="rnm">${r.n}</div><div class="rinf"><span class="stars" style="font-size:9px">${starsStr(r.s)}</span><span class="rsrc ${r.src}">${r.src==='amz'?'أمازون':'Reddit'}</span>${r.v?`<span class="rver">✓ موثق</span>`:''}<span>${r.d}</span></div></div>
+      </div>
+      <div class="rtitle">${r.t}</div>
+      <div class="rbody">${r.b}</div>
+      <div class="rtags">${r.tags.map(t=>`<span class="rtag pos">${t}</span>`).join('')}</div>
+      <div class="rhlp">هل كان مفيداً؟ <button class="hlpb" onclick="this.innerHTML='👍 نعم ('+(parseInt(this.innerHTML.split('(')[1])+1)+')';this.style.color='var(--green)'">👍 نعم (${r.h})</button><button class="hlpb">👎 لا</button></div>
+    </div>`).join('')}`;
+
+  const ai=`
+    <div id="aiWrap_${p.id}">
+      <div class="ai-trigger" id="aiTrig_${p.id}" onclick="genAI(${p.id})">
+        <div class="ai-t-icon">🤖</div>
+        <div class="ai-t-title">شرح ذكي بالعربي البسيط</div>
+        <div class="ai-t-sub">اضغط وسيشرح لك الذكاء الاصطناعي هذا المنتج — إيش هو، مين يستفيد منه، كيف يُركب، وسؤال وجواب.</div>
+        <button class="btn-ai" id="aiBtn_${p.id}">✨ اشرح لي هذا المنتج</button>
+      </div>
+      <div class="ai-load" id="aiLoad_${p.id}" style="display:none">
+        <div class="ai-spin"></div>
+        <div class="ai-l-txt">جاري تحليل المنتج<span class="ai-dots"><span>.</span><span>.</span><span>.</span></span></div>
+        <div class="ai-l-sub">يكتب لك شرحاً بالعربي البسيط</div>
+      </div>
+      <div class="ai-err" id="aiErr_${p.id}"></div>
+      <div class="ai-res" id="aiRes_${p.id}"></div>
+    </div>`;
+
+  document.getElementById('mbody').innerHTML=`
+    <div class="panel active" id="panel-report">${rpt}</div>
+    <div class="panel" id="panel-prices">${prices}</div>
+    <div class="panel" id="panel-reviews">${revs}</div>
+    <div class="panel" id="panel-ai">${ai}</div>`;
+
+  if(aiCache[p.id]) showCachedAI(p.id);
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function swTab(tab,btn){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+
+function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow=''}
+function handleOvClick(e){if(e.target===document.getElementById('overlay'))closeModal()}
+
+// ══════════════ AI EXPLAIN ══════════════
+async function genAI(pid){
+  const p=P.find(x=>x.id===pid);
+  document.getElementById(`aiTrig_${pid}`).style.display='none';
+  document.getElementById(`aiLoad_${pid}`).style.display='flex';
+  document.getElementById(`aiErr_${pid}`).style.display='none';
+
+  const prompt=`أنت خبير تقني متخصص في شرح المنتجات التقنية بالعربي السعودي البسيط المفهوم.
+
+المنتج المطلوب شرحه: ${p.name}
+الفئة: ${catLabel(p.cat)}
+العلامة التجارية: ${p.brand}
+المواصفات الرئيسية: ${p.specs.slice(0,3).map(s=>s[0]+': '+s[1]).join('، ')}
+نطاق السعر: ${Math.min(...Object.values(p.prices))} - ${Math.max(...Object.values(p.prices))} ريال سعودي
+
+اكتب شرحاً شاملاً ومفيداً يتضمن هذه الأقسام بالضبط:
+
+===SECTION_1: ما هو هذا المنتج بالضبط؟===
+اشرح ما هو المنتج بتشبيه بسيط يفهمه أي شخص — اكتب 3 جمل بسيطة جداً
+
+===SECTION_2: مين يستفيد منه أكثر؟===
+اذكر 4 فئات من الناس يستفيدون من هذا المنتج مع شرح قصير لكل فئة في سطر واحد
+
+===SECTION_3: مين يحتاجه ومين لا يحتاجه؟===
+سطرين فقط: من يجب عليه الشراء، ومن لا يستحق له الشراء
+
+===SECTION_4: كيف يُركب أو يُستخدم؟===
+3 خطوات مبسطة — كل خطوة بالشكل: عنوان قصير: وصف مبسط
+
+===SECTION_5: سؤال وجواب سريع===
+3 أسئلة شائعة بالشكل:
+س: السؤال؟
+ج: الجواب القصير
+
+===SECTION_6: الخلاصة النهائية===
+جملتان فقط: خلاصة نهائية — هل يستحق الشراء وليش، بالعربي البسيط
+
+مهم جداً:
+- اكتب بالعربي السعودي العامي البسيط
+- استخدم الإنجليزية للمصطلحات التقنية فقط مثل (GPU, RAM, SSD)
+- لا تضيف أي نص خارج الأقسام`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data=await res.json();
+    const txt=data.content?.find(c=>c.type==='text')?.text||'';
+    if(!txt) throw new Error('لا يوجد رد');
+    const parsed=parseSections(txt);
+    renderAI(pid,parsed,p);
+    aiCache[pid]=parsed;
+  }catch(err){
+    document.getElementById(`aiLoad_${pid}`).style.display='none';
+    document.getElementById(`aiTrig_${pid}`).style.display='flex';
+    const errEl=document.getElementById(`aiErr_${pid}`);
+    errEl.style.display='block';
+    errEl.textContent=`❌ تعذّر توليد الشرح: ${err.message}. تحقق من الاتصال وحاول مجدداً.`;
+  }
+}
+
+function parseSections(txt){
+  const out={};
+  const re=/===SECTION_(\d+): ([^=]+)===\n([\s\S]*?)(?====SECTION_|$)/g;
+  let m;
+  while((m=re.exec(txt))!==null){out[parseInt(m[1])]={title:m[2].trim(),content:m[3].trim()}}
+  if(!Object.keys(out).length) return{raw:txt};
+  return out;
+}
+
+function renderAI(pid,parsed,p){
+  document.getElementById(`aiLoad_${pid}`).style.display='none';
+  const el=document.getElementById(`aiRes_${pid}`);
+
+  if(parsed.raw){
+    el.innerHTML=`<div class="ai-sec"><div class="ai-sec-t"><span class="ic">🤖</span>شرح ذكي</div><div class="ai-p" style="white-space:pre-wrap">${parsed.raw}</div></div><div class="ai-regen"><button class="btn-regen" onclick="regenAI(${pid})">🔄 شرح مختلف</button></div>`;
+    el.classList.add('show');return;
+  }
+
+  const bLines=(parsed[2]?.content||'').split('\n').filter(l=>l.trim()).slice(0,4);
+  const instLines=(parsed[4]?.content||'').split('\n').filter(l=>l.trim()).slice(0,4);
+  const qaContent=(parsed[5]?.content||'');
+  const qaLines=qaContent.split('\n').filter(l=>l.trim());
+
+  let html=`<div style="background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(79,70,229,.06));border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:12px 14px;margin-bottom:18px;display:flex;align-items:center;gap:9px"><span style="font-size:22px">🤖</span><div><div style="font-size:11px;font-weight:700;color:#a78bfa;margin-bottom:2px">تم التوليد بالذكاء الاصطناعي — Claude</div><div style="font-size:10px;color:var(--text-muted)">شرح مخصص لـ ${p.nameAr}</div></div></div>`;
+
+  if(parsed[1]) html+=`<div class="ai-sec"><div class="ai-sec-t"><span class="ic">💡</span>${parsed[1].title}</div><div class="ai-p">${parsed[1].content}</div></div>`;
+
+  if(parsed[2]&&bLines.length) html+=`<div class="ai-sec"><div class="ai-sec-t"><span class="ic">👥</span>${parsed[2].title}</div><div class="ai-cards">${bLines.map((l,i)=>`<div class="acard"><div class="acard-ic">${ICONS[i]||'✅'}</div><div class="acard-b">${l.replace(/^[-•\d.]\s*/,'')}</div></div>`).join('')}</div></div>`;
+
+  if(parsed[3]){const ls=parsed[3].content.split('\n').filter(l=>l.trim());html+=`<div class="ai-sec"><div class="ai-sec-t"><span class="ic">🤔</span>${parsed[3].title}</div><ul class="ai-list">${ls.map((l,i)=>`<li><span class="lic">${i===0?'✅':'❌'}</span><span>${l.replace(/^[-•]\s*/,'')}</span></li>`).join('')}</ul></div>`}
+
+  if(parsed[4]&&instLines.length) html+=`<div class="ai-sec"><div class="ai-sec-t"><span class="ic">🔧</span>${parsed[4].title}</div><div class="ai-steps">${instLines.map((s,i)=>{const cl=s.replace(/^[\d.)\-•]\s*/,'');const co=cl.indexOf(':');const t=co>0?cl.slice(0,co):`الخطوة ${i+1}`;const d=co>0?cl.slice(co+1).trim():cl;return`<div class="ai-step"><div class="snum">${i+1}</div><div class="sbody"><div class="stitle">${t}</div><div class="sdesc">${d}</div></div></div>`}).join('')}</div></div>`;
+
+  // Parse Q&A
+  const qas=[];
+  for(let i=0;i<qaLines.length-1;i++){if(qaLines[i].match(/^س:|^سؤال:|\؟$/)){qas.push({q:qaLines[i].replace(/^(س:|سؤال:)\s*/,''),a:qaLines[i+1]?.replace(/^(ج:|جواب:)\s*/,'')||''});i++}}
+  if(qas.length&&parsed[5]) html+=`<div class="ai-sec"><div class="ai-sec-t"><span class="ic">❓</span>${parsed[5].title}</div><div style="display:flex;flex-direction:column;gap:9px">${qas.map(qa=>`<div style="background:var(--bg-2);border:1px solid var(--border);border-radius:7px;overflow:hidden"><div style="padding:9px 13px;background:var(--bg-3);font-size:12px;font-weight:700;color:#a78bfa;border-bottom:1px solid var(--border)">❓ ${qa.q}</div><div style="padding:9px 13px;font-size:11px;color:var(--text-secondary);line-height:1.65">${qa.a}</div></div>`).join('')}</div></div>`;
+
+  if(parsed[6]) html+=`<div class="ai-sec"><div class="ai-vbox"><div class="ai-vl">🎯 الخلاصة النهائية</div><div class="ai-vt">${parsed[6].content}</div></div></div>`;
+
+  html+=`<div class="ai-regen"><button class="btn-regen" onclick="regenAI(${pid})">🔄 شرح مختلف</button></div>`;
+  el.innerHTML=html;el.classList.add('show');
+}
+
+function showCachedAI(pid){
+  const trig=document.getElementById(`aiTrig_${pid}`);
+  if(trig&&aiCache[pid]){trig.style.display='none';renderAI(pid,aiCache[pid],P.find(x=>x.id===pid))}
+}
+
+function regenAI(pid){
+  delete aiCache[pid];
+  const r=document.getElementById(`aiRes_${pid}`);if(r){r.classList.remove('show');r.innerHTML=''}
+  const t=document.getElementById(`aiTrig_${pid}`);if(t) t.style.display='flex';
+}
+
+// ══════════════ COMPARE ══════════════
+function toggleCmp(e,id){
+  e.stopPropagation();
+  if(cmpList.includes(id)){cmpList=cmpList.filter(x=>x!==id)}
+  else if(cmpList.length<3){cmpList.push(id)}
+  else{alert('يمكنك مقارنة 3 منتجات كحد أقصى');return}
+  updateCmpBar();
+  renderGrid(curCat,document.getElementById('srchIn').value);
+}
+
+function updateCmpBar(){
+  const bar=document.getElementById('cbar');
+  document.getElementById('ccnt').textContent=cmpList.length;
+  document.getElementById('cmpBadge').textContent=cmpList.length;
+  document.getElementById('cmpBadge').style.display=cmpList.length>0?'':'none';
+  bar.classList.toggle('visible',cmpList.length>=2);
+}
+
+function scrollToCompare(){
+  if(cmpList.length<2){alert('اختر منتجين على الأقل للمقارنة');return}
+  buildCmpTable();
+  document.getElementById('cmpsec').style.display='block';
+  document.getElementById('cmpsec').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function buildCmpTable(){
+  const items=cmpList.map(id=>P.find(p=>p.id===id));
+  document.getElementById('cmptbl').innerHTML=`
+    <thead><tr><th style="width:120px">المعيار</th>${items.map(p=>`<th><span style="font-size:18px">${p.emoji}</span><div style="font-size:10px;font-weight:700;margin-top:3px">${p.nameAr}</div></th>`).join('')}</tr></thead>
+    <tbody>
+      <tr><td>العلامة التجارية</td>${items.map(p=>`<td>${p.brand}</td>`).join('')}</tr>
+      <tr><td>الفئة</td>${items.map(p=>`<td>${catLabel(p.cat)}</td>`).join('')}</tr>
+      <tr><td>التقييم</td>${items.map(p=>`<td><span class="cw">${p.rating} ★</span></td>`).join('')}</tr>
+      <tr><td>عدد التقييمات</td>${items.map(p=>`<td>${p.reviewCount.toLocaleString('ar-SA')}</td>`).join('')}</tr>
+      <tr><td>أرخص سعر</td>${items.map(p=>{const ch=Object.entries(p.prices).sort((a,b)=>a[1]-b[1])[0];return`<td><span class="cw">${ch[1].toLocaleString('ar-SA')} ر.س</span><br><small style="color:var(--text-muted)">${SN[ch[0]]}</small></td>`}).join('')}</tr>
+      <tr><td>الحكم</td>${items.map(p=>`<td><small style="font-size:10px;color:var(--text-secondary)">${p.verdict}</small></td>`).join('')}</tr>
+    </tbody>`;
+}
+
+function clearCmp(){cmpList=[];document.getElementById('cmpsec').style.display='none';updateCmpBar();renderGrid(curCat,document.getElementById('srchIn').value)}
+
+// ══════════════ STORES ══════════════
+function goStore(store,pid){
+  const p=P.find(x=>x.id===pid);
+  const urls={amazon:`https://www.amazon.sa/s?k=${encodeURIComponent(p.name)}&tag=aldaleelug-20`,noon:`https://www.noon.com/saudi-ar/search/?q=${encodeURIComponent(p.name)}`,jarir:`https://www.jarir.com/sa-en/catalogsearch/result/?q=${encodeURIComponent(p.name)}`,extra:`https://www.extra.com/en-sa/search?query=${encodeURIComponent(p.name)}`};
+  window.open(urls[store],'_blank');
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+renderGrid();
+</script>
+</body>
+</html>
